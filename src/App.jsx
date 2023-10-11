@@ -1,19 +1,37 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import Nav from '../components/Nav/Nav'
+import { Route, Routes } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
-import StarshipCard from '../components/StarshipCard/StarshipCard'
+// import StarshipCards from '../components/StarshipCards/StarshipCards'
+import { getAllStarships } from '../services/sw-api'
 
 function App() {
+  const [starships, setStarships] = useState([])
 
-
-
+  useEffect(() => {
+    const fetchStarships = async () => {
+      const starshipData = await getAllStarships()
+      setStarships(starshipData.results)
+    }
+    fetchStarships()
+  }, [])
+  
 
   return (
     <>
-      <h1>This is an H1</h1>
-      <StarshipCard />
+      <Nav />
+      {/* <StarshipCards starships={starships} /> */}
+      <div className='starships-container'>
+        {starships.map((starship) => (
+          <div key={starship.name}>{starship.name}</div>
+        ))}
+      </div>
+      
     </>
   )
 }
+
+
 
 export default App

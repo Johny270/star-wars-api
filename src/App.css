@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+.starships-container {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 50px;
+}
+.starships-container > * {
+  width: 400px;
+  height: 200px;
+  border: 2px solid white;
+}
