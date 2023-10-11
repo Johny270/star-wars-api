@@ -7,7 +7,7 @@ const StarshipCard = ({starship}) => {
   return ( 
     <div className="ship-card">
       {starship.name}
-      <Link to='/details' state={{starship}}><button>View Ship Details</button></Link>
+      <Link to='/details' state={{starship}}><button>Ship Details With Location</button></Link>
       
     </div>
   )
