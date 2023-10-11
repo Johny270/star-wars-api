@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Nav from '../components/Nav/Nav'
+// import Nav from '../components/Nav/Nav'
 import { Route, Routes } from 'react-router-dom'
-// import { Link } from 'react-router-dom'
-// import StarshipCards from '../components/StarshipCards/StarshipCards'
+import StarshipCard from '../components/StarshipCard/StarshipCard'
 import { getAllStarships } from '../services/sw-api'
 
+
 function App() {
+
   const [starships, setStarships] = useState([])
 
   useEffect(() => {
@@ -16,15 +17,16 @@ function App() {
     }
     fetchStarships()
   }, [])
-  
 
   return (
     <>
-      <Nav />
-      {/* <StarshipCards starships={starships} /> */}
+      {/* <Nav /> */}
+      {/* <Routes>
+        <Route path='/ships' element={<Ships />} />
+      </Routes> */}
       <div className='starships-container'>
         {starships.map((starship) => (
-          <div key={starship.name}>{starship.name}</div>
+          <StarshipCard starship={starship} key={starship.name}/>
         ))}
       </div>
       

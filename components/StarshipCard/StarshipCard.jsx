@@ -1,22 +1,15 @@
-import { useEffect, useState } from "react";
-import { getAllStarships } from "../../services/sw-api";
+import { Link } from "react-router-dom";
+import './StarshipCard.css'
 
-const StarshipCard = () => {
-  const [starships, setStarships] = useState([])
-
-  useEffect(() => {
-    const fetchStarships = async () => {
-      const starshipData = await getAllStarships()
-      setStarships(starshipData)
-    }
-    fetchStarships()
-  }, [])
+const StarshipCard = ({starship}) => {
   
-  if(!starships.length) return <h1>Loading Starships...</h1>
-  console.log(starships.length)
 
   return ( 
-    <h1>I am a starship</h1>
+    <div className="ship-card">
+      {starship.name}
+      <Link to='/details' state={{starship}}><button>View Ship Details</button></Link>
+      
+    </div>
   )
 }
  
