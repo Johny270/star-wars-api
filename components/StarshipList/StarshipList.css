@@ -1,0 +1,22 @@
+h1 {
+  /* width: 100%; */
+  background-color: red;
+  margin-bottom: 60px;
+}
+
+.divs-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.divs-container > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  width: 400px;
+  height: 100px;
+  font-size: 30px;
+}

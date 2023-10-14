@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import * as apiService from '../../services/sw-api'
+import './Starship.css'
 
 const Starship = () => {
   const {shipId} = useParams()
